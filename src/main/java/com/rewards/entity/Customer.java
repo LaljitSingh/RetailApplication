@@ -28,7 +28,12 @@ public class Customer {
 		this.customerId = customerId;
 		this.name = name;
 	}
-	
+	public Customer(String customerId, String name, List<Transaction> transactions) {
+		super();
+		this.customerId = customerId;
+		this.name = name;
+		this.transactions = transactions;
+	}
 	public int getTotalRewards() {
 		return totalRewards;
 	}

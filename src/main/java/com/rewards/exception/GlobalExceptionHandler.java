@@ -14,6 +14,12 @@ public class GlobalExceptionHandler {
 
 	private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+	/**
+	 * Handles CustomerNotFoundException and returns a response with error details.
+	 *
+	 * @param exception the thrown CustomerNotFoundException
+	 * @return ResponseEntity containing error message and HTTP status 404
+	 */
 	@ExceptionHandler(CustomerNotFoundException.class)
 	public ResponseEntity<Map<String, Object>> handleCustomerNotFoundException(CustomerNotFoundException exception) {
 		Map<String, Object> response = new HashMap<>();
@@ -24,6 +30,12 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 	}
 
+	/**
+	 * Handles general exceptions and returns a response with error details.
+	 *
+	 * @param exception the thrown exception
+	 * @return ResponseEntity containing error message and HTTP status 500
+	 */
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<Map<String, Object>> handleGeneralException(Exception exception) {
 		Map<String, Object> response = new HashMap<>();

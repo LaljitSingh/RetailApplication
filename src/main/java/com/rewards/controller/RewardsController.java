@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.rewards.entity.Customer;
 import com.rewards.entity.Transaction;
 import com.rewards.exception.CustomerNotFoundException;
@@ -29,10 +28,11 @@ public class RewardsController {
 	private static final Logger logger = LoggerFactory.getLogger(RewardsController.class);
 
 	/**
-	 * Calculate rewards and prepare report for a customer.
+	 * Fetches rewards for a given customer by ID, calculating monthly and total
+	 * rewards.
 	 * 
-	 * @param customerId
-	 * @return
+	 * @param customerId ID of the customer.
+	 * @return Response with customer details and rewards, or error if not found.
 	 */
 	@GetMapping("/rewards")
 	public ResponseEntity<Map<String, Object>> getRewards(@RequestParam String customerId) {
@@ -61,7 +61,10 @@ public class RewardsController {
 	}
 
 	/**
-	 * Get all customers transaction details for last three months.
+	 * Retrieves all customers with their transactions from the last 3 months.
+	 * 
+	 * @return List of customers and their transactions, or error if no customers
+	 *         found.
 	 */
 	@GetMapping("/getAllCustomerTransaction")
 	public ResponseEntity<List<Customer>> getAllCustomers() {

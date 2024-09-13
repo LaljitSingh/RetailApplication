@@ -7,6 +7,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * The entry point for the Retail Rewards Application.
+ * 
+ * This class bootstraps the Spring Boot application and configures the
+ * component scanning, entity scanning, and JPA repository management for the
+ * rewards system.
+ */
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.rewards.service", "com.rewards.controller", "com.rewards.loader",
 		"com.rewards.exception" })
