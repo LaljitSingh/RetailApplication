@@ -52,7 +52,6 @@ public class RewardsService {
 	 */
 	public Map<Object, Integer> calculateMonthlyRewards(List<Transaction> transactions) {
 		log.info("Calculating monthly rewards");
-
 		return transactions.stream().collect(Collectors.groupingBy(tx -> {
 			LocalDate date = tx.getTransactionDate();
 			return date.getYear() + "-" + date.getMonth(); // Grouping by "Year-Month"
@@ -94,6 +93,7 @@ public class RewardsService {
 	 */
 	@Transactional
 	public List<Customer> getAllCustomersWithTransactionsInLast3Months() {
+		log.info("Fetching all customers transaction details");
 		LocalDate threeMonthsAgo = LocalDate.now().minusMonths(3);
 		return customerRepository.findAll().stream().map(customer -> {
 			Customer customerDTO = new Customer();

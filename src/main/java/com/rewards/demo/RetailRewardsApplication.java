@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = "com.rewards.dao")
 @EntityScan(basePackages = "com.rewards.entity")
 @EnableTransactionManagement
-//@EnableSwagger2
 public class RetailRewardsApplication {
 
 	public static void main(String[] args) {

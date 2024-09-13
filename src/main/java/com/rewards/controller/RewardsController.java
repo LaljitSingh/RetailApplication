@@ -41,6 +41,7 @@ public class RewardsController {
 
 		if (null != customerId && customerId.isBlank()) {
 			response.put("error", "Customer ID cannot be empty");
+			logger.error("Found customer id is empty");
 			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 		} else {
 			customerId = customerId.trim();
@@ -64,7 +65,11 @@ public class RewardsController {
 	 */
 	@GetMapping("/getAllCustomerTransaction")
 	public ResponseEntity<List<Customer>> getAllCustomers() {
-		List<Customer> listData = rewardsService.getAllCustomersWithTransactionsInLast3Months();
-		return new ResponseEntity<>(listData, HttpStatus.OK);
+		List<Customer> customers = rewardsService.getAllCustomersWithTransactionsInLast3Months();
+		if (customers.isEmpty()) {
+			logger.error("Not found any customer");
+			throw new CustomerNotFoundException("Not found any customer");
+		}
+		return new ResponseEntity<>(customers, HttpStatus.OK);
 	}
 }
