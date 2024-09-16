@@ -1,4 +1,4 @@
-# Retail Reward Service
+﻿# Retail Reward Service
 This service provide a reward programme to the customers, awarding points to the customers based on each transaction for a given time.
 
 A customer receives 2 points for every dollar spent over $100 in each transaction, plus 1 point for every dollar spent between $50 and $100 in each transaction.
@@ -27,7 +27,7 @@ A customer receives 2 points for every dollar spent over $100 in each transactio
     + URI: "http://localhost:8080/api/rewards?customerId=customer1"
     + Calculate reward points for a customer for each transaction for given amount of time and prepare a report.
     + Response Body:
-   ```json
+    ```json
 {
     "customerId": "customer1",
     "monthlyRewards": {
@@ -37,12 +37,13 @@ A customer receives 2 points for every dollar spent over $100 in each transactio
     "customerName": "Karan",
     "totalRewards": 120
 }    
-
+    ```
 2. Get Rewards for all customers:
     + URI: "api/getAllCustomerTransactionö
     
     + Calculate reward points for a customer for each transaction for given amount of time and prepare a report.
     + Response Body:
+    ```json
     
 [
     {
@@ -123,3 +124,5 @@ A customer receives 2 points for every dollar spent over $100 in each transactio
         ]
     }
 ]
+    ```
+
